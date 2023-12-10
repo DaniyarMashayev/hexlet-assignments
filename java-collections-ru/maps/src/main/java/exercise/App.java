@@ -24,11 +24,11 @@ class App {
             return "{}";
         }
         var entries = wordsCount.entrySet();
-        StringBuilder strBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         for (var entry : entries) {
-            strBuilder.append('\n' + "  " + entry.getKey() + ":" + " " + entry.getValue());
+            stringBuilder.append('\n' + "  " + entry.getKey() + ":" + " " + entry.getValue());
         }
-        return  "{" + strBuilder + '\n' + "}";
+        return  "{" + stringBuilder + '\n' + "}";
     }
 }
 //END
