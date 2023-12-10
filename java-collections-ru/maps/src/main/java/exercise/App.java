@@ -16,7 +16,6 @@ class App {
             var count = wordsCount.getOrDefault(word, 0);
             wordsCount.put(word, count + 1);
         }
-        System.out.println(wordsCount);
         return wordsCount;
     }
 
@@ -29,8 +28,7 @@ class App {
         for (var entry : entries) {
             stringBuilder.append('\n' + "  " + entry.getKey() + ":" + " " + entry.getValue());
         }
-        String result = "{" + stringBuilder + '\n' + "}";
-        return result;
+        return  "{" + stringBuilder + '\n' + "}";
     }
 }
 //END
