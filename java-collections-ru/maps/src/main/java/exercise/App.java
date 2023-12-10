@@ -26,7 +26,7 @@ class App {
         var entries = wordsCount.entrySet();
         StringBuilder stringBuilder = new StringBuilder();
         for (var entry : entries) {
-            stringBuilder.append('\n' + "  " + entry.getKey() + ":" + " " + entry.getValue());
+            stringBuilder.append('\n' + "  ").append(entry.getKey()).append(":").append(" ").append(entry.getValue());
         }
         return  "{" + stringBuilder + '\n' + "}";
     }
