@@ -13,7 +13,7 @@ class App {
         String[] words = sentence.split(" ");
         HashMap<String, Integer> wordsCount = new HashMap<>();
         for (String word : words) {
-            var count = wordsCount.getOrDefault(word, 0);
+            int count = wordsCount.getOrDefault(word, 0);
             wordsCount.put(word, count + 1);
         }
         return wordsCount;
@@ -24,11 +24,11 @@ class App {
             return "{}";
         }
         var entries = wordsCount.entrySet();
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder strBuilder = new StringBuilder();
         for (var entry : entries) {
-            stringBuilder.append('\n' + "  " + entry.getKey() + ":" + " " + entry.getValue());
+            strBuilder.append('\n' + "  " + entry.getKey() + ":" + " " + entry.getValue());
         }
-        return  "{" + stringBuilder + '\n' + "}";
+        return  "{" + strBuilder + '\n' + "}";
     }
 }
 //END
