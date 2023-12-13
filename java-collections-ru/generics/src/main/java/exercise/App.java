@@ -20,7 +20,6 @@ class App {
                 result.add(item);
             }
         }
-        System.out.println(result);
         return result;
     }
 }
