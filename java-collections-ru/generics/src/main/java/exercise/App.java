@@ -6,11 +6,11 @@ import java.util.List;
 
 // BEGIN
 class App {
-    public static List<Map<String, String>> findWhere(List<Map<String, String>> books, Map<String, String> where) {
+    public static List<Map<String, String>> findWhere(List<Map<String, String>> data, Map<String, String> items) {
         List<Map<String, String>> result = new ArrayList<>();
-        for (Map<String, String> item: books) {
+        for (Map<String, String> item: data) {
             boolean find = true;
-            for (Map.Entry<String, String> entry: where.entrySet()) {
+            for (Map.Entry<String, String> entry: items.entrySet()) {
                 String itemValue = item.getOrDefault(entry.getKey(), "");
                 if (!itemValue.equals(entry.getValue())) {
                     find = false;
