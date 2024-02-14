@@ -6,7 +6,7 @@ public class Flat implements Home {
     private double balconyArea;
     private int floor;
 
-    public Flat (double area, double balconyArea, int floor) {
+    public Flat(double area, double balconyArea, int floor) {
         this.area = area;
         this.balconyArea = balconyArea;
         this.floor = floor;

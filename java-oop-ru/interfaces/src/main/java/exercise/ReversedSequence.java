@@ -4,7 +4,7 @@ package exercise;
 public class ReversedSequence implements CharSequence {
     private String sequence;
 
-    public ReversedSequence (String sequence) {
+    public ReversedSequence(String sequence) {
         this.sequence = sequence;
     }
 
