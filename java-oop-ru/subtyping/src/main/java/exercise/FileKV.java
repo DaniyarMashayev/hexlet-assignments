@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 // BEGIN
-public class FileKV implements KeyValueStorage{
+public class FileKV implements KeyValueStorage {
     private String file;
     private final Map<String, String> map;
 
-    public FileKV (String file, Map<String, String> map) {
+    public FileKV(String file, Map<String, String> map) {
         this.file = file;
         this.map = new HashMap<>(map);
     }

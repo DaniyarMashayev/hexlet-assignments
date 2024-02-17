@@ -14,11 +14,14 @@ public class InMemoryKV implements KeyValueStorage {
 
     @Override
     public void set(String key, String value) {
+        this.key = key;
+        this.value = value;
         map.put(key, value);
     }
 
     @Override
     public void unset(String key) {
+        this.key = key;
         this.map.remove(key);
     }
 
