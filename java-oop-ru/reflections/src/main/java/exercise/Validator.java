@@ -51,7 +51,7 @@ public class Validator {
         return result;
     }
 
-    private static List<String> getErrorMessage (Address address, Field field) {
+    private static List<String> getErrorMessage(Address address, Field field) {
         List<String> errorMessage = new ArrayList<>();
         String valueField;
         field.setAccessible(true);
