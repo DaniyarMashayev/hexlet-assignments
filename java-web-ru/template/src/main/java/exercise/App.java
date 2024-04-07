@@ -8,7 +8,6 @@ import io.javalin.http.NotFoundResponse;
 import exercise.model.User;
 import exercise.dto.users.UserPage;
 import exercise.dto.users.UsersPage;
-import static io.javalin.rendering.template.TemplateUtil.model;
 import io.javalin.rendering.template.JavalinJte;
 
 public final class App {
@@ -43,29 +42,7 @@ public final class App {
                 UserPage page = new UserPage(user);
                 ctx.render("users/show.jte", Collections.singletonMap("page", page));
             }
-
         });
-
-//        app.get("users/{id}", ctx -> {
-//            var id = ctx.pathParam("id");
-//            var page = new UsersPage(new UserPage);
-//
-//
-//        });
-
-//        app.get("users/{id}", ctx -> {
-//            int id = Integer.parseInt(ctx.pathParam("id"));
-//            User user = USERS.stream()
-//                    .filter(u -> u.getId() == id)
-//                    .findFirst()
-//                    .orElse(null);
-//
-//            if (user == null) {
-//                throw new NotFoundResponse("User not found");
-//            } else {
-//                ctx.json(user);
-//            }
-//        });
         // END
 
         app.get("/", ctx -> {
