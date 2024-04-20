@@ -23,19 +23,20 @@ public class PostsController {
     // BEGIN
     public static void create(Context ctx) {
         try {
-            var name = ctx.formParamAsClass("name", String.class)
+            String name = ctx.formParamAsClass("name", String.class)
                     .check(value -> value.length() >= 2, "Название не должно быть короче двух символов")
                     .get();
-            var body = ctx.formParam("body");
-            var post = new Post(name, body);
+            String body = ctx.formParam("body");
+            Post post = new Post(name, body);
             PostRepository.save(post);
             ctx.sessionAttribute("flash", "Пост был успешно создан!");
             ctx.sessionAttribute("flash-type", "success");
-            ctx.redirect(NamedRoutes.postsPath());
+            ctx.redirect(NamedRoutes.postsPath());     //   "/posts"
+
         } catch (ValidationException e) {
-            var name = ctx.formParam("name");
-            var body = ctx.formParam("body");
-            var page = new BuildPostPage(name, body, e.getErrors());
+            String name = ctx.formParam("name");
+            String body = ctx.formParam("body");
+            BuildPostPage page = new BuildPostPage(name, body, e.getErrors());
             ctx.render("posts/build.jte", model("page", page)).status(422);
         }
     }
@@ -47,7 +48,6 @@ public class PostsController {
         page.setFlashType(ctx.consumeSessionAttribute("flash-type"));
         ctx.render("posts/index.jte", Collections.singletonMap("page", page));
     }
-
     // END
 
     public static void show(Context ctx) {
