@@ -12,9 +12,9 @@ public class Application {
         Method[] methods = Address.class.getDeclaredMethods();
 
         for (Method method : methods) {
-            if(method.isAnnotationPresent(Inspect.class)) {
+            if (method.isAnnotationPresent(Inspect.class)) {
                 System.out.println("Method " + method.getName() + " returns a value of type "
-                + method.getReturnType().getSimpleName());
+                    + method.getReturnType().getSimpleName());
             }
         }
         // END
