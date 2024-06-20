@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.test.web.servlet.MockMvc;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -18,12 +19,12 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 
 import java.util.HashMap;
+import java.util.Optional;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.datafaker.Faker;
 import exercise.repository.TaskRepository;
 import exercise.model.Task;
-//import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-//import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 // BEGIN
 @SpringBootTest
@@ -131,14 +132,11 @@ class ApplicationTest {
         Task task = generateTask();
         taskRepository.save(task);
 
-        mockMvc.perform(delete("/tasks/{id}", task.getId()))
+        mockMvc.perform(delete("/tasks/" +  task.getId()))
                 .andExpect(status().isOk());
 
-        var request = mockMvc.perform(get("/tasks"))
-                        .andExpect(status().isOk())
-                        .andReturn().getResponse().getContentAsString();
-
-        assertThat(request).doesNotContain(task.getTitle(), task.getDescription());
+        Optional<Task> foundTask = taskRepository.findById(task.getId());
+        assertThat(foundTask).isEmpty();
     }
 
     // END
