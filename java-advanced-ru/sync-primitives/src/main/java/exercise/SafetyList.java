@@ -2,7 +2,7 @@ package exercise;
 
 class SafetyList {
     // BEGIN
-    private int[] arr = new int[0];
+    private int[] mass = new int[0];
     private int size;
 
     public int getSize() {
@@ -10,16 +10,16 @@ class SafetyList {
     }
 
     public int get(int index) {
-        return arr[index];
+        return mass[index];
     }
 
     public synchronized void add(int data) {
-        int[] destArray = new int[arr.length + 1];
-        for (int i = 0; i < arr.length; i++) {
-            destArray[i] = arr[i];
+        int[] destArray = new int[mass.length + 1];
+        for (int i = 0; i < mass.length; i++) {
+            destArray[i] = mass[i];
         }
         destArray[destArray.length - 1] = data;
-        arr = destArray;
+        mass = destArray;
         size++;
     }
     // END

@@ -11,11 +11,6 @@ class ListThread extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < 1000; i++) {
-            try {
-                Thread.sleep(i);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
             list.add(i);
         }
     }
