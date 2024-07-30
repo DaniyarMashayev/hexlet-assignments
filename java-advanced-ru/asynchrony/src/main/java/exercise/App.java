@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 class App {
 
     // BEGIN
-    public static CompletableFuture<String> unionFiles(String file1, String file2, String file_result) {
+    public static CompletableFuture<String> unionFiles(String file1, String file2, String result) {
 
         CompletableFuture<String> string1 = CompletableFuture.supplyAsync(() -> {
             try {
@@ -39,7 +39,7 @@ class App {
         });
 
         CompletableFuture<String> unionString = string1.thenCombine(string2, (f1, f2) -> {
-            return  write(f1, f2, file_result);
+            return  write(f1, f2,   result);
         }).exceptionally(ex -> {
             System.out.println("Oops! We have an exception - " + ex.getMessage());
             return null;
